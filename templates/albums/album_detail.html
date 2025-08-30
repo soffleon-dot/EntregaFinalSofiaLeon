@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>{{ album.artista }} — {{ album.nombre }}</h2>
+<p><b>Género:</b> {{ album.genero }}</p>
+<p><b>Año:</b> {{ album.anio }}</p>
+{% if album.portada %}<img src="{{ album.portada.url }}" class="big">{% endif %}
+{% if user.is_authenticated %}
+<p><a href="{% url 'album_update' album.pk %}">Editar</a> | <a href="{% url 'album_delete' album.pk %}">Eliminar</a></p>
+{% endif %}
+{% endblock %}

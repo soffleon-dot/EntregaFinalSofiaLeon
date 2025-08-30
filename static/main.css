@@ -1,0 +1,7 @@
+body{font-family:system-ui,Arial,sans-serif;margin:20px}
+nav a{margin-right:10px}
+.right{float:right}
+.cards{padding-left:0}
+.card{list-style:none;border:1px solid #eee;padding:10px;margin:8px 0}
+img{max-height:110px}
+.big{max-height:260px}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h2>Registrarse</h2>
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <p>La contraseña debe tener al menos 8 caracteres, con una letra y un número.</p>
+  <button>Crear cuenta</button>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <a href="{% url 'home' %}">Inicio</a>
+  <a href="{% url 'album_list' %}">Catálogo</a>
+  <a href="{% url 'album_create' %}">Cargar álbum</a>
+  <a href="{% url 'about' %}">Acerca de mí</a>
+  <span class="right">
+    {% if user.is_authenticated %}
+      Hola, {{ user.username }} |
+      <a href="{% url 'profile' %}">Perfil</a> |
+      <a href="{% url 'password_change' %}">Cambiar contraseña</a> |
+      <a href="{% url 'logout' %}">Salir</a>
+    {% else %}
+      <a href="{% url 'login' %}">Ingresar</a> |
+      <a href="{% url 'signup' %}">Registrarse</a>
+    {% endif %}
+  </span>
+</nav>
+<hr>

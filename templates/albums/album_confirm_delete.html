@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h3>¿Eliminar "{{ object }}"?</h3>
+<form method="post">{% csrf_token %}
+  <button type="submit">Sí, eliminar</button>
+  <a href="{% url 'album_list' %}">Cancelar</a>
+</form>
+{% endblock %}

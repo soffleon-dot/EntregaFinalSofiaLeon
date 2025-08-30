@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Álbumes</h1>
+<form method="get">
+  <input type="text" name="q" placeholder="Buscar por artista, género o año" value="{{ q|default:'' }}">
+  <button type="submit">Buscar</button>
+</form>
+<ul class="cards">
+  {% for a in albums %}
+    <li class="card">
+      <a href="{% url 'album_detail' a.pk %}">
+        {% if a.portada %}<img src="{{ a.portada.url }}" alt="portada">{% endif %}
+        <div><strong>{{ a.artista }}</strong> - {{ a.nombre }} ({{ a.anio }})</div>
+        <small>{{ a.genero }}</small>
+      </a>
+      {% if user.is_authenticated %}
+      <div class="actions">
+        <a href="{% url 'album_update' a.pk %}">Editar</a> |
+        <a href="{% url 'album_delete' a.pk %}">Eliminar</a>
+      </div>
+      {% endif %}
+    </li>
+  {% empty %}
+    <li>No hay álbumes cargados o la búsqueda no encontró resultados.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
